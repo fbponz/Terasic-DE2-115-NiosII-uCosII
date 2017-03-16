@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="DE2_115_Media_Computer">
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_mult_cell:the_ejer2_cpu_mult_cell|altera_mult_add:the_altmult_add_part_1" CBX_FILE_NAME="altera_mult_add_q1u2.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_register_bank_a_module:ejer2_cpu_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_cdg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|lpm_add_sub:Add8" CBX_FILE_NAME="add_sub_qvi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_jtag_uart:jtag_uart|ejer2_jtag_uart_scfifo_w:the_ejer2_jtag_uart_scfifo_w|scfifo:wfifo" CBX_FILE_NAME="scfifo_jr21.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_mult_cell:the_ejer2_cpu_mult_cell|altera_mult_add:the_altmult_add_part_2" CBX_FILE_NAME="altera_mult_add_s1u2.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_jtag_uart:jtag_uart|ejer2_jtag_uart_scfifo_r:the_ejer2_jtag_uart_scfifo_r|scfifo:rfifo" CBX_FILE_NAME="scfifo_jr21.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_ic_data_module:ejer2_cpu_ic_data|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_cjd1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_ic_tag_module:ejer2_cpu_ic_tag|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_dng1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_mult_cell:the_ejer2_cpu_mult_cell|altera_mult_add:the_altmult_add_part_2|altera_mult_add_s1u2:auto_generated|altera_mult_add_rtl:altera_mult_add_rtl1|ama_multiplier_function:multiplier_block|lpm_mult:Mult0" CBX_FILE_NAME="mult_j011.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_nios2_oci:the_ejer2_cpu_nios2_oci|ejer2_cpu_nios2_ocimem:the_ejer2_cpu_nios2_ocimem|ejer2_cpu_ociram_sp_ram_module:ejer2_cpu_ociram_sp_ram|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_t971.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_register_bank_b_module:ejer2_cpu_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_ddg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_up_clocks:up_clocks|altpll:DE_Clock_Generator_System" CBX_FILE_NAME="altpll_6rb2.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_mult_cell:the_ejer2_cpu_mult_cell|altera_mult_add:the_altmult_add_part_1|altera_mult_add_q1u2:auto_generated|altera_mult_add_rtl:altera_mult_add_rtl1|ama_multiplier_function:multiplier_block|lpm_mult:Mult0" CBX_FILE_NAME="mult_jp01.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_onchip_memory:onchip_memory|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_kkc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE2_115_Media_Computer|ejer2:ejer|ejer2_up_clocks:up_clocks|altpll:DE_Clock_Generator_Audio" CBX_FILE_NAME="altpll_vpb2.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

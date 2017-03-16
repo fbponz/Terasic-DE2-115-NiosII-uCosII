@@ -1,0 +1,346 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: ip-generate --project-directory=D:/SID/Trabajo/ --output-directory=D:/SID/Trabajo/ejer2/ --report-file=bsf:D:/SID/Trabajo/ejer2.bsf --system-info=DEVICE_FAMILY="Cyclone IV E" --system-info=DEVICE=EP4CE115F29C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=D:/SID/Trabajo/ejer2.qsys
+Progress: Loading Trabajo/ejer2.qsys
+Progress: Reading input file
+Progress: Adding clk_50 [clock_source 13.0]
+Progress: Parameterizing module clk_50
+Progress: Adding clk_27 [clock_source 13.0]
+Progress: Parameterizing module clk_27
+Progress: Adding reset_bridge [altera_reset_bridge 13.0]
+Progress: Parameterizing module reset_bridge
+Progress: Adding up_clocks [altera_up_clocks 13.0]
+Progress: Parameterizing module up_clocks
+Progress: Adding sys_clk [altera_clock_bridge 13.0]
+Progress: Parameterizing module sys_clk
+Progress: Adding sdram_clk [altera_clock_bridge 13.0]
+Progress: Parameterizing module sdram_clk
+Progress: Adding vga_clk [altera_clock_bridge 13.0]
+Progress: Parameterizing module vga_clk
+Progress: Adding cpu [altera_nios2_qsys 13.0]
+Progress: Parameterizing module cpu
+Progress: Adding sdram [altera_avalon_new_sdram_controller 13.0.1.99.2]
+Progress: Parameterizing module sdram
+Progress: Adding onchip_memory [altera_avalon_onchip_memory2 13.0.1.99.2]
+Progress: Parameterizing module onchip_memory
+Progress: Adding flash_controller [altera_generic_tristate_controller 13.0]
+Progress: Parameterizing module flash_controller
+Progress: Adding flash_bridge [altera_tristate_conduit_bridge 13.0]
+Progress: Parameterizing module flash_bridge
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 13.0.1.99.2]
+Progress: Parameterizing module jtag_uart
+Progress: Adding timer [altera_avalon_timer 13.0.1.99.2]
+Progress: Parameterizing module timer
+Progress: Adding sysid [altera_avalon_sysid_qsys 13.0]
+Progress: Parameterizing module sysid
+Progress: Adding performance_counter [altera_avalon_performance_counter 13.0.1.99.2]
+Progress: Parameterizing module performance_counter
+Progress: Adding red_leds [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module red_leds
+Progress: Adding green_leds [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module green_leds
+Progress: Adding HEX3_HEX0 [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module HEX3_HEX0
+Progress: Adding HEX7_HEX4 [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module HEX7_HEX4
+Progress: Adding switches [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module switches
+Progress: Adding pushbuttons [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module pushbuttons
+Progress: Adding char_lcd [altera_up_avalon_character_lcd 13.0]
+Progress: Parameterizing module char_lcd
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: ejer2.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: ejer2.sysid: Time stamp will be automatically updated when this component is generated.
+Info: ip-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=D:/SID/Trabajo/ --output-directory=D:/SID/Trabajo/ejer2/synthesis/ --file-set=QUARTUS_SYNTH --report-file=sopcinfo:D:/SID/Trabajo/ejer2.sopcinfo --report-file=html:D:/SID/Trabajo/ejer2.html --report-file=qip:D:/SID/Trabajo/ejer2/synthesis/ejer2.qip --report-file=cmp:D:/SID/Trabajo/ejer2.cmp --report-file=svd --system-info=DEVICE_FAMILY="Cyclone IV E" --system-info=DEVICE=EP4CE115F29C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=D:/SID/Trabajo/ejer2.qsys --language=VERILOG
+Progress: Loading Trabajo/ejer2.qsys
+Progress: Reading input file
+Progress: Adding clk_50 [clock_source 13.0]
+Progress: Parameterizing module clk_50
+Progress: Adding clk_27 [clock_source 13.0]
+Progress: Parameterizing module clk_27
+Progress: Adding reset_bridge [altera_reset_bridge 13.0]
+Progress: Parameterizing module reset_bridge
+Progress: Adding up_clocks [altera_up_clocks 13.0]
+Progress: Parameterizing module up_clocks
+Progress: Adding sys_clk [altera_clock_bridge 13.0]
+Progress: Parameterizing module sys_clk
+Progress: Adding sdram_clk [altera_clock_bridge 13.0]
+Progress: Parameterizing module sdram_clk
+Progress: Adding vga_clk [altera_clock_bridge 13.0]
+Progress: Parameterizing module vga_clk
+Progress: Adding cpu [altera_nios2_qsys 13.0]
+Progress: Parameterizing module cpu
+Progress: Adding sdram [altera_avalon_new_sdram_controller 13.0.1.99.2]
+Progress: Parameterizing module sdram
+Progress: Adding onchip_memory [altera_avalon_onchip_memory2 13.0.1.99.2]
+Progress: Parameterizing module onchip_memory
+Progress: Adding flash_controller [altera_generic_tristate_controller 13.0]
+Progress: Parameterizing module flash_controller
+Progress: Adding flash_bridge [altera_tristate_conduit_bridge 13.0]
+Progress: Parameterizing module flash_bridge
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 13.0.1.99.2]
+Progress: Parameterizing module jtag_uart
+Progress: Adding timer [altera_avalon_timer 13.0.1.99.2]
+Progress: Parameterizing module timer
+Progress: Adding sysid [altera_avalon_sysid_qsys 13.0]
+Progress: Parameterizing module sysid
+Progress: Adding performance_counter [altera_avalon_performance_counter 13.0.1.99.2]
+Progress: Parameterizing module performance_counter
+Progress: Adding red_leds [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module red_leds
+Progress: Adding green_leds [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module green_leds
+Progress: Adding HEX3_HEX0 [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module HEX3_HEX0
+Progress: Adding HEX7_HEX4 [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module HEX7_HEX4
+Progress: Adding switches [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module switches
+Progress: Adding pushbuttons [altera_up_avalon_parallel_port 13.0]
+Progress: Parameterizing module pushbuttons
+Progress: Adding char_lcd [altera_up_avalon_character_lcd 13.0]
+Progress: Parameterizing module char_lcd
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: ejer2.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: ejer2.sysid: Time stamp will be automatically updated when this component is generated.
+Info: ejer2: Generating ejer2 "ejer2" for QUARTUS_SYNTH
+Info: pipeline_bridge_swap_transform: After transform: 23 modules, 80 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_translator_transform: After transform: 40 modules, 148 connections
+Info: merlin_domain_transform: After transform: 74 modules, 376 connections
+Info: merlin_router_transform: After transform: 91 modules, 444 connections
+Info: merlin_traffic_limiter_transform: After transform: 92 modules, 449 connections
+Info: merlin_burst_transform: After transform: 94 modules, 457 connections
+Info: reset_adaptation_transform: After transform: 96 modules, 359 connections
+Info: merlin_network_to_switch_transform: After transform: 129 modules, 431 connections
+Info: merlin_width_transform: After transform: 133 modules, 443 connections
+Info: limiter_update_transform: After transform: 133 modules, 444 connections
+Info: merlin_mm_transform: After transform: 133 modules, 444 connections
+Info: merlin_interrupt_mapper_transform: After transform: 134 modules, 447 connections
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Warning: ejer2: "No matching role found for rst_controller_001:reset_out:reset_req (reset_req)"
+Info: up_clocks: Starting Generation of Required Clocks for DE-Series Boards
+Info: up_clocks: "ejer2" instantiated altera_up_clocks "up_clocks"
+Info: cpu: Starting RTL generation for module 'ejer2_cpu'
+Info: cpu:   Generation command is [exec C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/eperl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=ejer2_cpu --dir=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0002_cpu_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0002_cpu_gen//ejer2_cpu_processor_configuration.pl  --do_build_sim=0    --bogus  ]
+Info: cpu: # 2015.06.12 15:37:04 (*) Starting Nios II generation
+Info: cpu: # 2015.06.12 15:37:04 (*)   Checking for plaintext license.
+Info: cpu: # 2015.06.12 15:37:04 (*)   Couldn't query license setup in Quartus directory C:/altera/13.0sp1/quartus
+Info: cpu: # 2015.06.12 15:37:04 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2015.06.12 15:37:06 (*)   Plaintext license not found.
+Info: cpu: # 2015.06.12 15:37:06 (*)   Checking for encrypted license (non-evaluation).
+Info: cpu: # 2015.06.12 15:37:06 (*)   Couldn't query license setup in Quartus directory C:/altera/13.0sp1/quartus
+Info: cpu: # 2015.06.12 15:37:06 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2015.06.12 15:37:07 (*)   Encrypted license found.  SOF will not be time-limited.
+Info: cpu: # 2015.06.12 15:37:07 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2015.06.12 15:37:07 (*)   Creating all objects for CPU
+Info: cpu: # 2015.06.12 15:37:08 (*)     Pipeline frontend
+Info: cpu: # 2015.06.12 15:37:09 (*)   Generating RTL from CPU objects
+Info: cpu: # 2015.06.12 15:37:11 (*)   Creating encrypted RTL
+Info: cpu: # 2015.06.12 15:37:11 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'ejer2_cpu'
+Info: cpu: "ejer2" instantiated altera_nios2_qsys "cpu"
+Info: sdram: Starting RTL generation for module 'ejer2_sdram'
+Info: sdram:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=ejer2_sdram --dir=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0003_sdram_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0003_sdram_gen//ejer2_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'ejer2_sdram'
+Info: sdram: "ejer2" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: onchip_memory: Starting RTL generation for module 'ejer2_onchip_memory'
+Info: onchip_memory:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=ejer2_onchip_memory --dir=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0004_onchip_memory_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0004_onchip_memory_gen//ejer2_onchip_memory_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory: Done RTL generation for module 'ejer2_onchip_memory'
+Info: onchip_memory: "ejer2" instantiated altera_avalon_onchip_memory2 "onchip_memory"
+Info: pipeline_bridge_swap_transform: After transform: 5 modules, 10 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_translator_transform: After transform: 5 modules, 10 connections
+Info: flash_controller: "ejer2" instantiated altera_generic_tristate_controller "flash_controller"
+Info: flash_bridge: "ejer2" instantiated altera_tristate_conduit_bridge "flash_bridge"
+Info: jtag_uart: Starting RTL generation for module 'ejer2_jtag_uart'
+Info: jtag_uart:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=ejer2_jtag_uart --dir=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0006_jtag_uart_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0006_jtag_uart_gen//ejer2_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'ejer2_jtag_uart'
+Info: jtag_uart: "ejer2" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: timer: Starting RTL generation for module 'ejer2_timer'
+Info: timer:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=ejer2_timer --dir=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0007_timer_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0007_timer_gen//ejer2_timer_component_configuration.pl  --do_build_sim=0  ]
+Info: timer: Done RTL generation for module 'ejer2_timer'
+Info: timer: "ejer2" instantiated altera_avalon_timer "timer"
+Info: sysid: "ejer2" instantiated altera_avalon_sysid_qsys "sysid"
+Info: performance_counter: Starting RTL generation for module 'ejer2_performance_counter'
+Info: performance_counter:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_performance_counter -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_performance_counter/generate_rtl.pl --name=ejer2_performance_counter --dir=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0009_performance_counter_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/fraponc1/AppData/Local/Temp/alt6598_4799216627695443913.dir/0009_performance_counter_gen//ejer2_performance_counter_component_configuration.pl  --do_build_sim=0  ]
+Info: performance_counter: Done RTL generation for module 'ejer2_performance_counter'
+Info: performance_counter: "ejer2" instantiated altera_avalon_performance_counter "performance_counter"
+Info: red_leds: Starting Generation of Parallel Port
+Info: red_leds: "ejer2" instantiated altera_up_avalon_parallel_port "red_leds"
+Info: green_leds: Starting Generation of Parallel Port
+Info: green_leds: "ejer2" instantiated altera_up_avalon_parallel_port "green_leds"
+Info: HEX3_HEX0: Starting Generation of Parallel Port
+Info: HEX3_HEX0: "ejer2" instantiated altera_up_avalon_parallel_port "HEX3_HEX0"
+Info: HEX7_HEX4: Starting Generation of Parallel Port
+Info: HEX7_HEX4: "ejer2" instantiated altera_up_avalon_parallel_port "HEX7_HEX4"
+Info: switches: Starting Generation of Parallel Port
+Info: switches: "ejer2" instantiated altera_up_avalon_parallel_port "switches"
+Info: pushbuttons: Starting Generation of Parallel Port
+Info: pushbuttons: "ejer2" instantiated altera_up_avalon_parallel_port "pushbuttons"
+Info: char_lcd: Starting Generation of Character LCD
+Info: char_lcd: "ejer2" instantiated altera_up_avalon_character_lcd "char_lcd"
+Info: cpu_instruction_master_translator: "ejer2" instantiated altera_merlin_master_translator "cpu_instruction_master_translator"
+Info: cpu_jtag_debug_module_translator: "ejer2" instantiated altera_merlin_slave_translator "cpu_jtag_debug_module_translator"
+Info: cpu_instruction_master_translator_avalon_universal_master_0_agent: "ejer2" instantiated altera_merlin_master_agent "cpu_instruction_master_translator_avalon_universal_master_0_agent"
+Info: cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent: "ejer2" instantiated altera_merlin_slave_agent "cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent"
+Info: cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo: "ejer2" instantiated altera_avalon_sc_fifo "cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo"
+Info: addr_router: "ejer2" instantiated altera_merlin_router "addr_router"
+Info: addr_router_001: "ejer2" instantiated altera_merlin_router "addr_router_001"
+Info: id_router: "ejer2" instantiated altera_merlin_router "id_router"
+Info: id_router_003: "ejer2" instantiated altera_merlin_router "id_router_003"
+Info: id_router_004: "ejer2" instantiated altera_merlin_router "id_router_004"
+Info: id_router_014: "ejer2" instantiated altera_merlin_router "id_router_014"
+Info: limiter: "ejer2" instantiated altera_merlin_traffic_limiter "limiter"
+Info: burst_adapter: "ejer2" instantiated altera_merlin_burst_adapter "burst_adapter"
+Info: rst_controller: "ejer2" instantiated altera_reset_controller "rst_controller"
+Info: cmd_xbar_demux: "ejer2" instantiated altera_merlin_demultiplexer "cmd_xbar_demux"
+Info: cmd_xbar_demux_001: "ejer2" instantiated altera_merlin_demultiplexer "cmd_xbar_demux_001"
+Info: cmd_xbar_mux: "ejer2" instantiated altera_merlin_multiplexer "cmd_xbar_mux"
+Info: rsp_xbar_demux: "ejer2" instantiated altera_merlin_demultiplexer "rsp_xbar_demux"
+Info: rsp_xbar_demux_004: "ejer2" instantiated altera_merlin_demultiplexer "rsp_xbar_demux_004"
+Info: rsp_xbar_mux: "ejer2" instantiated altera_merlin_multiplexer "rsp_xbar_mux"
+Info: Reusing file D:/SID/Trabajo/ejer2/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_xbar_mux_001: "ejer2" instantiated altera_merlin_multiplexer "rsp_xbar_mux_001"
+Info: Reusing file D:/SID/Trabajo/ejer2/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: width_adapter: "ejer2" instantiated altera_merlin_width_adapter "width_adapter"
+Info: Reusing file D:/SID/Trabajo/ejer2/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file D:/SID/Trabajo/ejer2/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: irq_mapper: "ejer2" instantiated altera_irq_mapper "irq_mapper"
+Info: tdt: "flash_controller" instantiated altera_tristate_controller_translator "tdt"
+Info: tda: "flash_controller" instantiated altera_tristate_controller_aggregator "tda"
+Info: ejer2: Done ejer2" with 43 modules, 169 files, 3721291 bytes
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

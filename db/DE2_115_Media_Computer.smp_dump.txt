@@ -1,0 +1,69 @@
+
+State Machine - |DE2_115_Media_Computer|ejer2:ejer|ejer2_char_lcd:char_lcd|s_lcd_controller
+Name s_lcd_controller.LCD_STATE_6_COMPLETE s_lcd_controller.LCD_STATE_5_TRANSFER s_lcd_controller.LCD_STATE_4_BEGIN_TRANSFER s_lcd_controller.LCD_STATE_3_CHECK_BUSY s_lcd_controller.LCD_STATE_2_START_CHECK_BUSY s_lcd_controller.LCD_STATE_1_INITIALIZE s_lcd_controller.LCD_STATE_0_IDLE 
+s_lcd_controller.LCD_STATE_0_IDLE 0 0 0 0 0 0 0 
+s_lcd_controller.LCD_STATE_1_INITIALIZE 0 0 0 0 0 1 1 
+s_lcd_controller.LCD_STATE_2_START_CHECK_BUSY 0 0 0 0 1 0 1 
+s_lcd_controller.LCD_STATE_3_CHECK_BUSY 0 0 0 1 0 0 1 
+s_lcd_controller.LCD_STATE_4_BEGIN_TRANSFER 0 0 1 0 0 0 1 
+s_lcd_controller.LCD_STATE_5_TRANSFER 0 1 0 0 0 0 1 
+s_lcd_controller.LCD_STATE_6_COMPLETE 1 0 0 0 0 0 1 
+
+State Machine - |DE2_115_Media_Computer|ejer2:ejer|ejer2_char_lcd:char_lcd|altera_up_character_lcd_initialization:Char_LCD_Init|s_lcd_initialize
+Name s_lcd_initialize.LCD_INIT_STATE_3_DONE s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 
+s_lcd_initialize.LCD_INIT_STATE_0_WAIT_POWER_UP 0 0 0 0 
+s_lcd_initialize.LCD_INIT_STATE_1_SEND_COMMAND 0 0 1 1 
+s_lcd_initialize.LCD_INIT_STATE_2_CHECK_DONE 0 1 0 1 
+s_lcd_initialize.LCD_INIT_STATE_3_DONE 1 0 0 1 
+
+State Machine - |DE2_115_Media_Computer|ejer2:ejer|ejer2_char_lcd:char_lcd|altera_up_character_lcd_communication:Char_LCD_Comm|s_lcd
+Name s_lcd.LCD_STATE_0_OPERATION s_lcd.LCD_STATE_3_END s_lcd.LCD_STATE_2_HOLD s_lcd.LCD_STATE_1_ENABLE s_lcd.LCD_STATE_4_IDLE 
+s_lcd.LCD_STATE_4_IDLE 0 0 0 0 0 
+s_lcd.LCD_STATE_1_ENABLE 0 0 0 1 1 
+s_lcd.LCD_STATE_2_HOLD 0 0 1 0 1 
+s_lcd.LCD_STATE_3_END 0 1 0 0 1 
+s_lcd.LCD_STATE_0_OPERATION 1 0 0 0 1 
+
+State Machine - |DE2_115_Media_Computer|ejer2:ejer|ejer2_sdram:sdram|m_next
+Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
+m_next.000000001 0 0 0 0 
+m_next.000001000 0 0 1 1 
+m_next.000010000 0 1 0 1 
+m_next.010000000 1 0 0 1 
+
+State Machine - |DE2_115_Media_Computer|ejer2:ejer|ejer2_sdram:sdram|m_state
+Name m_state.100000000 m_state.010000000 m_state.001000000 m_state.000100000 m_state.000010000 m_state.000001000 m_state.000000100 m_state.000000010 m_state.000000001 
+m_state.000000001 0 0 0 0 0 0 0 0 0 
+m_state.000000010 0 0 0 0 0 0 0 1 1 
+m_state.000000100 0 0 0 0 0 0 1 0 1 
+m_state.000001000 0 0 0 0 0 1 0 0 1 
+m_state.000010000 0 0 0 0 1 0 0 0 1 
+m_state.000100000 0 0 0 1 0 0 0 0 1 
+m_state.001000000 0 0 1 0 0 0 0 0 1 
+m_state.010000000 0 1 0 0 0 0 0 0 1 
+m_state.100000000 1 0 0 0 0 0 0 0 1 
+
+State Machine - |DE2_115_Media_Computer|ejer2:ejer|ejer2_sdram:sdram|i_next
+Name i_next.111 i_next.101 i_next.010 i_next.000 
+i_next.000 0 0 0 0 
+i_next.010 0 0 1 1 
+i_next.101 0 1 0 1 
+i_next.111 1 0 0 1 
+
+State Machine - |DE2_115_Media_Computer|ejer2:ejer|ejer2_sdram:sdram|i_state
+Name i_state.111 i_state.101 i_state.011 i_state.010 i_state.001 i_state.000 
+i_state.000 0 0 0 0 0 0 
+i_state.001 0 0 0 0 1 1 
+i_state.010 0 0 0 1 0 1 
+i_state.011 0 0 1 0 0 1 
+i_state.101 0 1 0 0 0 1 
+i_state.111 1 0 0 0 0 1 
+
+State Machine - |DE2_115_Media_Computer|ejer2:ejer|ejer2_cpu:cpu|ejer2_cpu_nios2_oci:the_ejer2_cpu_nios2_oci|ejer2_cpu_jtag_debug_module_wrapper:the_ejer2_cpu_jtag_debug_module_wrapper|ejer2_cpu_jtag_debug_module_tck:the_ejer2_cpu_jtag_debug_module_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 

@@ -1,0 +1,17 @@
+/*
+ * key_codes.h
+ *
+ *  Created on: 18/06/2015
+ *      Author: fraponc1
+ */
+
+#ifndef KEY_CODES_H_
+#define KEY_CODES_H_
+
+#define KEY0 0
+#define KEY1 1
+#define KEY2 2
+#define KEY3 3
+
+
+#endif /* KEY_CODES_H_ */

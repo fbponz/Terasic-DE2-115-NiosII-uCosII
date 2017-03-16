@@ -1,0 +1,347 @@
+/*************************************************************************
+* Copyright (c) 2004 Altera Corporation, San Jose, California, USA.      *
+* All rights reserved. All use of this software and documentation is     *
+* subject to the License Agreement located at the end of this file below.*
+**************************************************************************
+* Description:                                                           *
+* The following is a simple hello world program running MicroC/OS-II.The * 
+* purpose of the design is to be a very simple application that just     *
+* demonstrates MicroC/OS-II running on NIOS II.The design doesn't account*
+* for issues such as checking system call return codes. etc.             *
+*                                                                        *
+* Requirements:                                                          *
+*   -Supported Example Hardware Platforms                                *
+*     Standard                                                           *
+*     Full Featured                                                      *
+*     Low Cost                                                           *
+*   -Supported Development Boards                                        *
+*     Nios II Development Board, Stratix II Edition                      *
+*     Nios Development Board, Stratix Professional Edition               *
+*     Nios Development Board, Stratix Edition                            *
+*     Nios Development Board, Cyclone Edition                            *
+*   -System Library Settings                                             *
+*     RTOS Type - MicroC/OS-II                                           *
+*     Periodic System Timer                                              *
+*   -Know Issues                                                         *
+*     If this design is run on the ISS, terminal output will take several*
+*     minutes per iteration.                                             *
+**************************************************************************/
+/* Ascensor V1.0: se realizada mediante la utilización de variables globales,
+ * en versiones posteriores se implementara mediante el uso de semaforos/mailbox.
+*/
+
+#include <stdio.h>
+#include "includes.h"
+#include "string.h"
+#include "sys/alt_irq.h"
+#include "key_codes.h"
+
+//Funciones control de LCD
+void LCD_cursor( int, int );
+void LCD_text( char * );
+void LCD_cursor_off( void );
+
+/* Definition of Task Stacks */
+#define   TASK_STACKSIZE       4096
+
+OS_STK    control_stk[TASK_STACKSIZE];
+OS_STK    cabina_stk[TASK_STACKSIZE];
+OS_STK    moduloseguridad_stk[TASK_STACKSIZE];
+OS_STK    teclado_stk[TASK_STACKSIZE];
+OS_STK	  visualizacion_stk[TASK_STACKSIZE];
+
+/* Definition of Task Priorities */
+
+#define CONTROL_PRIORITY       	 2
+#define CABINA_PRIORITY       	 3
+#define MODULOSEGURIDAD_PRIORITY 4
+#define TECLADO_PRIORITY		 5
+#define VISUALIZACION_PRIORITY 	 6
+
+/*Buzones*/
+OS_EVENT *mbllamadas;
+OS_EVENT *mbacciones; //0-> Abajo, 1->Parado, 2->Arriba
+OS_EVENT *mbposicion;
+OS_EVENT *mbismoving;
+
+/*Semaforos*/
+OS_EVENT *smControl;
+OS_EVENT *smMSeguridad;
+OS_EVENT *smCabina;
+
+/*Variables teclado*/
+volatile int * KEY_ptr = (int *) PUSHBUTTONS_BASE;
+volatile int key_pressed;
+void pushbutton_ISR();
+
+
+/*Tarea Control:debe procesar información de los teclados y de la posición
+ * del ascensor y decidir donde debe ir */
+void control(void* pdata)
+{
+  INT8U return_code = OS_NO_ERR;
+  int accion_control=1;
+  int Cola_llamadas=0;
+  while (1)
+  { 
+	Cola_llamadas=(int *)OSMboxAccept(mbllamadas);
+    printf("Control: %d",Cola_llamadas);
+	return_code = OSMboxPostOpt(mbacciones,(void *)accion_control);//0-> Abajo, 1->Parado, 2->Arriba
+
+    printf("Hello from control\n");
+    OSTimeDlyHMSM(0, 0, 3, 0);
+  }
+}
+/*Tarea Cabina: deberá recibir las acciones de control y actuar en consecuencia simulando
+ * el movimiento del ascensor y activando los sensores pertinentes en cada caso. Debe
+ * simular la medida de la posición de la cabina considerando que se emplea un encoder
+ * óptico que proporciona 1 pulso por cm.*/
+void cabina(void* pdata)
+{
+  while (1)
+  {
+    printf("Hello from cabina\n");
+    OSTimeDlyHMSM(0, 0, 3, 0);
+  }
+}
+/*Tarea Modulo Seguridad:debe monitorizar el sistema de forma periódica, detectar
+ * situaciones no deseadas y detener el ascensor si alguna condición de seguridad se
+ * incumple. Por ejemplo: no se deberían abrir las puertas con la cabina en movimiento,
+ * se debería frenar ante una velocidad excesiva,... Añádanse las restricciones que se
+ * considere más adecuadas. Sería interesante introducir, mediante los interruptores,
+ * perturbaciones que provoquen alteraciones en el comportamiento del sistema y que
+ * deberían ser detectadas por el módulo de seguridad.*/
+void moduloseguridad(void* pdata)
+{
+  while (1)
+  {
+    printf("Hello from modulo seguridad\n");
+    OSTimeDlyHMSM(0, 0, 3, 0);
+  }
+}
+/*Tarea Teclado:emplear los pulsadores de la plataforma DE2-115 como los pulsadores
+ *  de cabina del ascensor. Emplear los interruptores para implementar los pulsadores
+ *  de llamada en planta (idear un criterio propio de identificación de llamada)*/
+void teclado(void* pdata)
+{
+	INT8U return_code = OS_NO_ERR;
+	volatile int * SW_switch_ptr = (int *) SWITCHES_BASE;
+	int SW_valor=0,SW_valor_anterior=1;
+	while (1)
+	  {
+		printf("Hello from teclado\n");
+		SW_valor = *(SW_switch_ptr);
+		if(SW_valor!=SW_valor_anterior) return_code = OSMboxPostOpt(mbllamadas,(void *)SW_valor);
+		SW_valor_anterior=SW_valor;
+		OSTimeDlyHMSM(0, 0, 1, 0);
+
+	 }
+}
+/*Tarea Visualizacion: debe mostrar información relativa al estado del sistema: posición
+ * del ascensor, llamadas pendientes de atender, estado de movimiento, etc... Pueden
+ * emplearse tanto los LEDs, como el display LCD o un monitor VGA*/
+void visualizacion(void* pdata)
+{
+	//Variables internas.
+	char salida[40],salida1[40];
+	int Cola_llamadas=0, Cola_llamadas_anterior=0;;
+	//volatile int * red_LED_ptr = (int *) RED_LEDS_BASE; // Led's rojos.
+	volatile int * green_LED_ptr = (int *) GREEN_LEDS_BASE;// Led's verdes.
+	while (1)
+	{
+		Cola_llamadas =(int *)OSMboxAccept(mbllamadas);
+
+		printf("Hello from visualizacion\n");
+
+
+		//Switches
+		if(Cola_llamadas!=Cola_llamadas_anterior && Cola_llamadas != NULL){
+			 if(Cola_llamadas&1)printf("parada\n");
+			 if(Cola_llamadas&2)printf("uno\n");
+			 if(Cola_llamadas&4)printf("dos\n");
+			 if(Cola_llamadas&8)printf("tres\n");
+			 if(Cola_llamadas&64)printf("perturbacion1\n");
+			 if(Cola_llamadas&128)printf("perturbacion2\n");
+			 *(green_LED_ptr) = Cola_llamadas;
+			 Cola_llamadas_anterior=Cola_llamadas;
+		}
+
+		//LCD.
+		/*
+		if(1){
+				sprintf(salida,"[Planta %d]",posicion_actual);
+				sprintf(salida1,"Parado");
+			}else if(isMoving==1){
+				sprintf(salida,"[Planta %d]",posicion_actual);
+				sprintf(salida1,"En Movimiento");
+		}
+		LCD_cursor(0,0);
+		LCD_text(salida);
+		LCD_cursor (0,1);
+		LCD_text (salida1);
+		LCD_cursor_off();
+		*/
+
+		//Mostrar variables globales.
+		OSTimeDlyHMSM(0, 0, 1, 0);
+
+
+	}
+
+}
+/****************************************************************************************
+ * Subrutina para mover el cursor del LCD
+****************************************************************************************/
+void LCD_cursor(int x, int y)
+{
+  	volatile char * LCD_display_ptr = (char *) CHAR_LCD_BASE;	// display LCD 16x2
+	char instruction;
+
+	instruction = x;
+	if (y != 0) instruction |= 0x40;			// activar el bit 6 para la fila inferior
+	instruction |= 0x80;						// hay que activar el bit 7 para indicar el lugar
+	*(LCD_display_ptr) = instruction;			// escribe registro de instrucciones del LCD
+}
+
+/****************************************************************************************
+ * Subrutina para enviar una cadena de texto al LCD
+****************************************************************************************/
+void LCD_text(char * text_ptr)
+{
+  	volatile char * LCD_display_ptr = (char *) CHAR_LCD_BASE;	// display LCD 16x2
+
+	while ( *(text_ptr) )
+	{
+		*(LCD_display_ptr + 1) = *(text_ptr);	// escribe los datos en el LCD
+		++text_ptr;
+	}
+}
+
+/****************************************************************************************
+ * Subrutina para apagar el cursor del LCD
+****************************************************************************************/
+void LCD_cursor_off(void)
+{
+  	volatile char * LCD_display_ptr = (char *) CHAR_LCD_BASE;	// display LCD 16x2
+	*(LCD_display_ptr) = 0x0C;										// desactiva el curso del LCD
+}
+/****************************************************************************************
+ * pushbutton_ISR
+****************************************************************************************/
+void pushbutton_ISR( ){
+	INT8U return_code = OS_NO_ERR;
+
+	int press;
+	press = *(KEY_ptr + 3);					// lee el registro de los pulsadores
+	*(KEY_ptr + 3) = 0; 					// borra la interrupción
+
+	if (press & 0x2)					// KEY1
+		key_pressed = KEY1;
+	else if (press & 0x4)					// KEY2
+		key_pressed = KEY2;
+	else if (press & 0x8)					// KEY3
+		key_pressed = KEY3;
+	return_code = OSMboxPostOpt(mbllamadas,(void *)press);
+	return;
+}
+/****************************************************************************************
+
+****************************************************************************************/
+
+int main(void)
+{
+
+    *(KEY_ptr + 2) = 0xE;
+    *(KEY_ptr + 3) = 0;
+    alt_irq_register(PUSHBUTTONS_IRQ, NULL, pushbutton_ISR);
+
+    //Creamos los buzones de mensajes.
+    mbllamadas = OSMboxCreate((void *)NULL);
+    mbacciones = OSMboxCreate((void *)NULL);
+
+    //Creamos los semaforos.
+    smControl = OSSemCreate(0);
+    smMSeguridad = OSSemCreate(0);
+    smCabina = OSSemCreate(0);
+
+
+	OSTaskCreateExt(control,
+						  NULL,
+						  (void *)&control_stk[TASK_STACKSIZE-1],
+						  CONTROL_PRIORITY,
+						  CONTROL_PRIORITY,
+						  control_stk,
+						  TASK_STACKSIZE,
+						  NULL,
+						  OS_TASK_OPT_STK_CHK|OS_TASK_OPT_STK_CLR);
+	OSTaskCreateExt(cabina,
+						  NULL,
+						  (void *)&cabina_stk[TASK_STACKSIZE-1],
+						  CABINA_PRIORITY,
+						  CABINA_PRIORITY,
+						  cabina_stk,
+						  TASK_STACKSIZE,
+						  NULL,
+						  OS_TASK_OPT_STK_CHK|OS_TASK_OPT_STK_CLR);
+	OSTaskCreateExt(moduloseguridad,
+						  NULL,
+						  (void *)&moduloseguridad_stk[TASK_STACKSIZE-1],
+						  MODULOSEGURIDAD_PRIORITY,
+						  MODULOSEGURIDAD_PRIORITY,
+						  moduloseguridad_stk,
+						  TASK_STACKSIZE,
+						  NULL,
+						  OS_TASK_OPT_STK_CHK|OS_TASK_OPT_STK_CLR);
+	OSTaskCreateExt(teclado,
+						  NULL,
+						  (void *)&teclado_stk[TASK_STACKSIZE-1],
+						  TECLADO_PRIORITY,
+						  TECLADO_PRIORITY,
+						  teclado_stk,
+						  TASK_STACKSIZE,
+						  NULL,
+						  OS_TASK_OPT_STK_CHK|OS_TASK_OPT_STK_CLR);
+	OSTaskCreateExt(visualizacion,
+						  NULL,
+						  (void *)&visualizacion_stk[TASK_STACKSIZE-1],
+						  VISUALIZACION_PRIORITY,
+						  VISUALIZACION_PRIORITY,
+						  visualizacion_stk,
+						  TASK_STACKSIZE,
+						  NULL,
+						  OS_TASK_OPT_STK_CHK|OS_TASK_OPT_STK_CLR);
+
+    OSStart();
+    return 0;
+}
+
+/******************************************************************************
+*                                                                             *
+* License Agreement                                                           *
+*                                                                             *
+* Copyright (c) 2004 Altera Corporation, San Jose, California, USA.           *
+* All rights reserved.                                                        *
+*                                                                             *
+* Permission is hereby granted, free of charge, to any person obtaining a     *
+* copy of this software and associated documentation files (the "Software"),  *
+* to deal in the Software without restriction, including without limitation   *
+* the rights to use, copy, modify, merge, publish, distribute, sublicense,    *
+* and/or sell copies of the Software, and to permit persons to whom the       *
+* Software is furnished to do so, subject to the following conditions:        *
+*                                                                             *
+* The above copyright notice and this permission notice shall be included in  *
+* all copies or substantial portions of the Software.                         *
+*                                                                             *
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  *
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,    *
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE *
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER      *
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING     *
+* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER         *
+* DEALINGS IN THE SOFTWARE.                                                   *
+*                                                                             *
+* This agreement shall be governed in all respects by the laws of the State   *
+* of California and by the laws of the United States of America.              *
+* Altera does not recommend, suggest or require that this reference design    *
+* file be used in conjunction or combination with any other product.          *
+******************************************************************************/
