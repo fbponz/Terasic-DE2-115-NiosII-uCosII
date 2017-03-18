@@ -46,7 +46,7 @@ The test application was develop a Lift Control, using the different switchs and
 
 I'm gonna let you show how work with a video.
 
-[Video de la aplicación](https://www.youtube.com/watch?v=zANU1Rv_bM0)
+[Video](https://www.youtube.com/watch?v=zANU1Rv_bM0)
 
 Kind Regards, Fbponz.
 
