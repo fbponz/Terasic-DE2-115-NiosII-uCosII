@@ -1,6 +1,8 @@
-# microSoft-Altera---NIOS-II
+# Terasic DE2-115- Microprocessor Software(FPGA) NIOSII-uCosII(RTOS)
 
-## Contenido:
+## Content:
+This project is divided in two parts.
+The first part it's prepare the FPGA
 En este proyecto se ha puesto en practica el concepto de procesador software dentro de la FPGA, y despues la simulación del microprocesador. Así como la utilización del RTOS. hemos programado lo siguiente:
 
 - Programar un microprocesador soft en la FPGA de la marca Altera DE2.
