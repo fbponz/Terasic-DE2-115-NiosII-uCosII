@@ -1,7 +1,7 @@
 # Terasic DE2-115- Microprocessor Software (FPGA) NIOSII-uCosII (RTOS)
 
 ## Content:
-The first part is to prepare the FPGA project, we must create the NIOSII Microprocessor, using Qsys. Our design has this specifications:
+The first step is prepare the FPGA project, we must create the NIOSII Microprocessor, using Qsys. Our design has this specifications:
 
 
 - Nios II (CPU).
