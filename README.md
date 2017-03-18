@@ -8,11 +8,11 @@ The first part is to prepare the FPGA project, we must create the NIOSII Micropr
 
 - Clock System:
  
-  - PLL
+    - PLL
   
-  - Source of Clock.
+    - Source of Clock.
   
-  - Source of Reset
+    - Source of Reset
 
 - SDRAM 128Mbytes.
 
