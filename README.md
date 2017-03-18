@@ -44,9 +44,7 @@ In this project our code is an example and is located here.
 Terasic-DE2-115-NiosII-uCosII / software / Elevator / hello_ucosii.c
 The test application was develop a Lift Control, using the different switchs and buttons to modified his behavour it.
 
-I'm gonna let you show how work with a video.
-
-[Video](https://www.youtube.com/watch?v=zANU1Rv_bM0)
+I'm gonna let you show how work with a [Video](https://www.youtube.com/watch?v=zANU1Rv_bM0).
 
 Kind Regards, Fbponz.
 
